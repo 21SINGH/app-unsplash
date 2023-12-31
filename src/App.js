@@ -100,6 +100,9 @@ const App = () => {
 
   return (
     <Container>
+      <div style={{marginTop: "40px", fontFamily:"Gbriel"}}>
+        <h1>HQIF</h1>
+      </div>
       <TextField
         label="Search Photos"
         value={searchQuery}
@@ -109,9 +112,9 @@ const App = () => {
       />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <Grid container spacing={2}>
+      <Grid container spacing={2} >
         {photos.map((photo) => (
-          <Grid item key={photo.id} xs={12} sm={6} md={4} lg={3}>
+          <Grid item className='pics' key={photo.id} xs={12} sm={6} md={4} lg={3}>
             <PhotoCard photo={photo} onCardClick={openModal} />
           </Grid>
         ))}
@@ -134,16 +137,18 @@ const App = () => {
           <Typography variant="h6">{selectedPhoto?.user.name}</Typography>
           <Typography variant="body2">Likes: {selectedPhoto?.likes}</Typography>
           {selectedPhoto && (
-            <a
-              href={selectedPhoto.urls.full}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="contained" color="primary">
-                Download High-Quality Image
-              </Button>
-            </a>
+            <div>
+              <a
+                href={selectedPhoto.urls.full}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="contained" color="primary">
+                  Preview
+                </Button>
+              </a>
+            </div>
           )}
           {userInfo && (
             <>

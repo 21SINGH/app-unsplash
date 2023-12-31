@@ -8,6 +8,7 @@ const PhotoCard = ({ photo, onCardClick }) => {
 
   return (
     <Card
+      className='gallery'
       onClick={handleCardClick}
       sx={{
         display: 'flex',
